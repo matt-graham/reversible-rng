@@ -9,47 +9,27 @@ except ImportError:
 
 cdef extern from "revrand.h":
 
+    cdef enum: KEY_LENGTH
+
     ctypedef struct rng_state:
-        int reverse
         unsigned long seed
-        int n_twists
-        unsigned long key[624]
+        unsigned long key[KEY_LENGTH]
         int pos
-        int has_gauss
-        double gauss
+        int reversed
+        int n_twists
 
     void init_state(unsigned long seed, rng_state *state)
     void reverse(rng_state *state)
     unsigned long random_int32(rng_state *state) nogil
-    double random_double(rng_state *state) nogil
-    double random_gauss(rng_state *state) nogil
+    double random_uniform(rng_state *state) nogil
+    void random_normal_pair(
+        rng_state *state, double *ret_1, double *ret_2) nogil
 
 
-ctypedef double (* double_rand_func)(rng_state *state) nogil
 ctypedef unsigned long (* ulong_rand_func)(rng_state *state) nogil
-
-
-cdef object assign_random_double_array(
-        rng_state *state, double_rand_func func, object shape, object lock):
-    cdef np.ndarray values
-    cdef double* values_data
-    cdef size_t values_size, i
-    if shape is not None:
-        values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
-        values_data = <double*>values.data
-        values_size = <size_t>values.size
-        with lock, nogil:
-            if state.reverse == 1:
-                for i in range(values_size - 1, -1, -1):
-                    values_data[i] = func(state)
-            else:
-                for i in range(values_size):
-                    values_data[i] = func(state)
-        return values
-    else:
-        with lock, nogil:
-            value = func(state)
-        return value
+ctypedef double (* double_rand_func)(rng_state *state) nogil
+ctypedef void (* double_pair_rand_func)(
+    rng_state *state, double *ret_1, double *ret_2) nogil
 
 
 cdef object assign_random_ulong_array(
@@ -62,17 +42,72 @@ cdef object assign_random_ulong_array(
         values_data = <unsigned long*>values.data
         values_size = <size_t>values.size
         with lock, nogil:
-            if state.reverse == 1:
-                for i in range(values_size - 1, -1, -1):
+            if state.reversed == 0:
+                for i in range(0, values_size):
                     values_data[i] = func(state)
             else:
-                for i in range(values_size):
+                for i in range(values_size - 1, -1, -1):
                     values_data[i] = func(state)
         return values
     else:
         with lock, nogil:
             value = func(state)
         return value
+
+
+cdef object assign_random_double_array(
+        rng_state *state, double_rand_func func, object shape, object lock):
+    cdef np.ndarray values
+    cdef double* values_data
+    cdef size_t values_size, i
+    if shape is not None:
+        values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
+        values_data = <double*>values.data
+        values_size = <size_t>values.size
+        with lock, nogil:
+            if state.reversed == 0:
+                for i in range(0, values_size):
+                    values_data[i] = func(state)
+            else:
+                for i in range(values_size - 1, -1, -1):
+                    values_data[i] = func(state)
+        return values
+    else:
+        with lock, nogil:
+            value = func(state)
+        return value
+
+
+cdef object assign_random_double_pair_array(
+        rng_state *state, double_pair_rand_func func, object shape,
+        object lock):
+    cdef np.ndarray values
+    cdef double* values_data
+    cdef int values_size_is_odd
+    cdef size_t values_size, values_size_even, i
+    cdef double value_1, value_2
+    if shape is not None:
+        values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
+        values_data = <double*>values.data
+        values_size = <size_t>values.size
+        values_size_is_odd = <int>(values_size & 1)
+        values_size_even = values_size - values_size_is_odd
+        with lock, nogil:
+            if state.reversed == 0:
+                for i in range(0, values_size_even, 2):
+                    func(state, &values_data[i], &values_data[i + 1])
+                if values_size_is_odd:
+                    func(state, &values_data[values_size - 1], &value_1)
+            else:
+                if values_size_is_odd:
+                    func(state, &values_data[values_size - 1], &value_1)
+                for i in range(values_size_even - 1, -1, -2):
+                    func(state, &values_data[i - 1], &values_data[i])
+        return values
+    else:
+        with lock, nogil:
+            func(state, &value_1, &value_2)
+        return value_1
 
 
 cdef class ReversibleRandomState:
@@ -102,6 +137,25 @@ cdef class ReversibleRandomState:
         except TypeError:
             raise TypeError("Seed must be an integer.")
 
+    def get_state(self):
+        cdef size_t i
+        cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
+        with self.lock:
+            seed = self.internal_state.seed
+            for i in range(KEY_LENGTH):
+                key[i] = self.internal_state.key[i]
+            pos = self.internal_state.pos
+            reversed = self.internal_state.reversed
+            n_twists = self.internal_state.n_twists
+        key = <np.ndarray>np.asarray(key, np.uint32)
+        return {
+            'seed': seed,
+            'key': key,
+            'pos': pos,
+            'reversed': reversed,
+            'n_twists': n_twists
+        }
+
     def reverse(self):
         reverse(self.internal_state)
 
@@ -112,10 +166,10 @@ cdef class ReversibleRandomState:
 
     def standard_uniform(self, shape=None):
         return assign_random_double_array(
-            self.internal_state, random_double, shape, self.lock
+            self.internal_state, random_uniform, shape, self.lock
         )
 
     def standard_normal(self, shape=None):
-        return assign_random_double_array(
-            self.internal_state, random_gauss, shape, self.lock
+        return assign_random_double_pair_array(
+            self.internal_state, random_normal_pair, shape, self.lock
         )
