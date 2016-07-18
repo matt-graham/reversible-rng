@@ -3,7 +3,7 @@ from revrng.numpy_wrapper import ReversibleRandomState
 
 
 SEED = 12345
-N_ITER = 50
+N_ITER = 100
 IN_RANGE_SAMPLES = 10000
 SHAPES = [2, (1,), (5, 4), (3, 2, 1, 2)]
 
@@ -28,6 +28,25 @@ def test_shape():
             'standard_normal shape mismatch: should be {0} actually {1}'
             .format(tuple_shape, samples.shape)
         )
+
+
+def test_no_shape_calls():
+    state = ReversibleRandomState(SEED)
+    sample = state.random_integers()
+    assert isinstance(sample, long), (
+        'random_integers type mismatch: should be long instance actually {0}'
+        .format(type(sample))
+    )
+    sample = state.standard_uniform()
+    assert isinstance(sample, float), (
+        'standard_uniform type mismatch: should be float instance actually {0}'
+        .format(type(sample))
+    )
+    sample = state.standard_normal()
+    assert isinstance(sample, float), (
+        'standard_normal type mismatch: should be float instance actually {0}'
+        .format(type(sample))
+    )
 
 
 def test_dtype():
@@ -128,10 +147,14 @@ def test_reversibility_mixed():
 def test_random_integers_in_range():
     state = ReversibleRandomState(SEED)
     samples = state.random_integers(IN_RANGE_SAMPLES)
-    assert np.all(samples >= 0) and np.all(samples < 2**32)
+    assert np.all(samples >= 0) and np.all(samples < 2**32), (
+        'random_integers samples out of range [0, 2**32)'
+    )
 
 
 def test_standard_uniform_in_range():
     state = ReversibleRandomState(SEED)
     samples = state.standard_uniform(IN_RANGE_SAMPLES)
-    assert np.all(samples >= 0.) and np.all(samples < 1.)
+    assert np.all(samples >= 0.) and np.all(samples < 1.), (
+        'standard_uniform samples out of range [0., 1.)'
+    )

@@ -154,7 +154,7 @@ void reverse_twist(rng_state *state)
     tmp = state->key[KEY_LENGTH - 1] ^ state->key[MID_OFFSET - 1];
     state->key[KEY_LENGTH - 1] = (tmp << 1) & UPPER_MASK;
     /* partition loop over keys to avoid mod ops in index calculations */
-    for (i = KEY_LENGTH - 2; i > KEY_LENGTH - MID_OFFSET; i--) {
+    for (i = KEY_LENGTH - 2; i > KEY_LENGTH - MID_OFFSET - 1; i--) {
         tmp = state->key[i] ^ state->key[i + MID_OFFSET - KEY_LENGTH];
         odd = (tmp & UPPER_MASK) == UPPER_MASK;
         tmp ^= (-odd & MATRIX_A);
