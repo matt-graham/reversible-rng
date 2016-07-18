@@ -716,7 +716,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "revrng/numpy_wrapper.pyx":29
+/* "revrng/numpy_wrapper.pyx":35
  * 
  * 
  * ctypedef unsigned long (* ulong_rand_func)(rng_state *state) nogil             # <<<<<<<<<<<<<<
@@ -725,7 +725,7 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
  */
 typedef unsigned long (*__pyx_t_6revrng_13numpy_wrapper_ulong_rand_func)(rng_state *);
 
-/* "revrng/numpy_wrapper.pyx":30
+/* "revrng/numpy_wrapper.pyx":36
  * 
  * ctypedef unsigned long (* ulong_rand_func)(rng_state *state) nogil
  * ctypedef double (* double_rand_func)(rng_state *state) nogil             # <<<<<<<<<<<<<<
@@ -734,7 +734,7 @@ typedef unsigned long (*__pyx_t_6revrng_13numpy_wrapper_ulong_rand_func)(rng_sta
  */
 typedef double (*__pyx_t_6revrng_13numpy_wrapper_double_rand_func)(rng_state *);
 
-/* "revrng/numpy_wrapper.pyx":31
+/* "revrng/numpy_wrapper.pyx":37
  * ctypedef unsigned long (* ulong_rand_func)(rng_state *state) nogil
  * ctypedef double (* double_rand_func)(rng_state *state) nogil
  * ctypedef void (* double_pair_rand_func)(             # <<<<<<<<<<<<<<
@@ -743,12 +743,12 @@ typedef double (*__pyx_t_6revrng_13numpy_wrapper_double_rand_func)(rng_state *);
  */
 typedef void (*__pyx_t_6revrng_13numpy_wrapper_double_pair_rand_func)(rng_state *, double *, double *);
 
-/* "revrng/numpy_wrapper.pyx":113
+/* "revrng/numpy_wrapper.pyx":119
  * 
  * 
  * cdef class ReversibleRandomState:             # <<<<<<<<<<<<<<
+ *     """ Numpy-compatible reversible random number generator. """
  * 
- *     cdef rng_state *internal_state
  */
 struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState {
   PyObject_HEAD
@@ -1141,7 +1141,7 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
 static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_seed); /* proto */
 static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_state(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_10reverse(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_integers(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_shape); /* proto */
+static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_shape); /* proto */
 static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_14standard_uniform(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_shape); /* proto */
 static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_16standard_normal(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_shape); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
@@ -1165,6 +1165,7 @@ static char __pyx_k_Zd[] = "Zd";
 static char __pyx_k_Zf[] = "Zf";
 static char __pyx_k_Zg[] = "Zg";
 static char __pyx_k_np[] = "np";
+static char __pyx_k_MIT[] = "MIT";
 static char __pyx_k_key[] = "key";
 static char __pyx_k_pos[] = "pos";
 static char __pyx_k_Lock[] = "Lock";
@@ -1184,17 +1185,21 @@ static char __pyx_k_import[] = "__import__";
 static char __pyx_k_uint32[] = "uint32";
 static char __pyx_k_uint64[] = "uint64";
 static char __pyx_k_asarray[] = "asarray";
+static char __pyx_k_authors[] = "__authors__";
 static char __pyx_k_float64[] = "float64";
+static char __pyx_k_license[] = "__license__";
 static char __pyx_k_n_twists[] = "n_twists";
 static char __pyx_k_reversed[] = "reversed";
 static char __pyx_k_TypeError[] = "TypeError";
 static char __pyx_k_threading[] = "threading";
 static char __pyx_k_ValueError[] = "ValueError";
 static char __pyx_k_ImportError[] = "ImportError";
+static char __pyx_k_Matt_Graham[] = "Matt Graham";
 static char __pyx_k_RuntimeError[] = "RuntimeError";
 static char __pyx_k_dummy_threading[] = "dummy_threading";
 static char __pyx_k_Seed_must_be_an_integer[] = "Seed must be an integer.";
 static char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
+static char __pyx_k_Numpy_compatible_reversible_ran[] = " Numpy-compatible reversible random number generation. ";
 static char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
 static char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte order not supported";
@@ -1205,6 +1210,8 @@ static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
 static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_n_s_Lock;
+static PyObject *__pyx_n_s_MIT;
+static PyObject *__pyx_kp_s_Matt_Graham;
 static PyObject *__pyx_kp_u_Non_native_byte_order_not_suppor;
 static PyObject *__pyx_n_s_RuntimeError;
 static PyObject *__pyx_kp_s_Seed_must_be_an_integer;
@@ -1212,6 +1219,7 @@ static PyObject *__pyx_kp_s_Seed_must_be_in_integer_in_0_2_3;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_asarray;
+static PyObject *__pyx_n_s_authors;
 static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_dummy_threading;
 static PyObject *__pyx_n_s_empty;
@@ -1220,6 +1228,7 @@ static PyObject *__pyx_n_s_exit;
 static PyObject *__pyx_n_s_float64;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_key;
+static PyObject *__pyx_n_s_license;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_n_twists;
 static PyObject *__pyx_kp_u_ndarray_is_not_C_contiguous;
@@ -1257,7 +1266,7 @@ static PyObject *__pyx_tuple__14;
 static PyObject *__pyx_tuple__15;
 static PyObject *__pyx_tuple__16;
 
-/* "revrng/numpy_wrapper.pyx":35
+/* "revrng/numpy_wrapper.pyx":41
  * 
  * 
  * cdef object assign_random_ulong_array(             # <<<<<<<<<<<<<<
@@ -1290,7 +1299,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("assign_random_ulong_array", 0);
 
-  /* "revrng/numpy_wrapper.pyx":40
+  /* "revrng/numpy_wrapper.pyx":46
  *     cdef unsigned long* values_data
  *     cdef size_t values_size, i
  *     if shape is not None:             # <<<<<<<<<<<<<<
@@ -1301,29 +1310,29 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "revrng/numpy_wrapper.pyx":41
+    /* "revrng/numpy_wrapper.pyx":47
  *     cdef size_t values_size, i
  *     if shape is not None:
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.uint64)             # <<<<<<<<<<<<<<
  *         values_data = <unsigned long*>values.data
  *         values_size = <size_t>values.size
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_shape, __pyx_v_shape) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_shape, __pyx_v_shape) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_uint64); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_uint64); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 47; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -1333,7 +1342,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
     __pyx_v_values = ((PyArrayObject *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "revrng/numpy_wrapper.pyx":42
+    /* "revrng/numpy_wrapper.pyx":48
  *     if shape is not None:
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.uint64)
  *         values_data = <unsigned long*>values.data             # <<<<<<<<<<<<<<
@@ -1342,20 +1351,20 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
  */
     __pyx_v_values_data = ((unsigned long *)__pyx_v_values->data);
 
-    /* "revrng/numpy_wrapper.pyx":43
+    /* "revrng/numpy_wrapper.pyx":49
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.uint64)
  *         values_data = <unsigned long*>values.data
  *         values_size = <size_t>values.size             # <<<<<<<<<<<<<<
  *         with lock, nogil:
  *             if state.reversed == 0:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_values), __pyx_n_s_size); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 43; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_values), __pyx_n_s_size); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 49; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyInt_As_size_t(__pyx_t_3); if (unlikely((__pyx_t_7 == (size_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 43; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = __Pyx_PyInt_As_size_t(__pyx_t_3); if (unlikely((__pyx_t_7 == (size_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 49; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_values_size = ((size_t)__pyx_t_7);
 
-    /* "revrng/numpy_wrapper.pyx":44
+    /* "revrng/numpy_wrapper.pyx":50
  *         values_data = <unsigned long*>values.data
  *         values_size = <size_t>values.size
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1363,9 +1372,9 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
  *                 for i in range(0, values_size):
  */
     /*with:*/ {
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_6))) {
@@ -1378,10 +1387,10 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -1397,7 +1406,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                 #endif
                 /*try:*/ {
 
-                  /* "revrng/numpy_wrapper.pyx":45
+                  /* "revrng/numpy_wrapper.pyx":51
  *         values_size = <size_t>values.size
  *         with lock, nogil:
  *             if state.reversed == 0:             # <<<<<<<<<<<<<<
@@ -1407,7 +1416,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                   __pyx_t_2 = ((__pyx_v_state->reversed == 0) != 0);
                   if (__pyx_t_2) {
 
-                    /* "revrng/numpy_wrapper.pyx":46
+                    /* "revrng/numpy_wrapper.pyx":52
  *         with lock, nogil:
  *             if state.reversed == 0:
  *                 for i in range(0, values_size):             # <<<<<<<<<<<<<<
@@ -1418,7 +1427,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_7; __pyx_t_12+=1) {
                       __pyx_v_i = __pyx_t_12;
 
-                      /* "revrng/numpy_wrapper.pyx":47
+                      /* "revrng/numpy_wrapper.pyx":53
  *             if state.reversed == 0:
  *                 for i in range(0, values_size):
  *                     values_data[i] = func(state)             # <<<<<<<<<<<<<<
@@ -1431,7 +1440,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                   }
                   /*else*/ {
 
-                    /* "revrng/numpy_wrapper.pyx":49
+                    /* "revrng/numpy_wrapper.pyx":55
  *                     values_data[i] = func(state)
  *             else:
  *                 for i in range(values_size - 1, -1, -1):             # <<<<<<<<<<<<<<
@@ -1441,7 +1450,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                     for (__pyx_t_7 = (__pyx_v_values_size - 1) + 1; __pyx_t_7 > -1 + 1; ) { __pyx_t_7-=1;
                       __pyx_v_i = __pyx_t_7;
 
-                      /* "revrng/numpy_wrapper.pyx":50
+                      /* "revrng/numpy_wrapper.pyx":56
  *             else:
  *                 for i in range(values_size - 1, -1, -1):
  *                     values_data[i] = func(state)             # <<<<<<<<<<<<<<
@@ -1454,7 +1463,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                   __pyx_L21:;
                 }
 
-                /* "revrng/numpy_wrapper.pyx":44
+                /* "revrng/numpy_wrapper.pyx":50
  *         values_data = <unsigned long*>values.data
  *         values_size = <size_t>values.size
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1479,7 +1488,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
           if (__pyx_t_8) {
             __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple_, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
@@ -1494,7 +1503,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
       __pyx_L26:;
     }
 
-    /* "revrng/numpy_wrapper.pyx":51
+    /* "revrng/numpy_wrapper.pyx":57
  *                 for i in range(values_size - 1, -1, -1):
  *                     values_data[i] = func(state)
  *         return values             # <<<<<<<<<<<<<<
@@ -1508,7 +1517,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
   }
   /*else*/ {
 
-    /* "revrng/numpy_wrapper.pyx":53
+    /* "revrng/numpy_wrapper.pyx":59
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1516,9 +1525,9 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
  *         return value
  */
     /*with:*/ {
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 59; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 59; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_6))) {
@@ -1531,10 +1540,10 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 59; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 59; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -1550,7 +1559,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                 #endif
                 /*try:*/ {
 
-                  /* "revrng/numpy_wrapper.pyx":54
+                  /* "revrng/numpy_wrapper.pyx":60
  *     else:
  *         with lock, nogil:
  *             value = func(state)             # <<<<<<<<<<<<<<
@@ -1560,7 +1569,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
                   __pyx_v_value = __pyx_v_func(__pyx_v_state);
                 }
 
-                /* "revrng/numpy_wrapper.pyx":53
+                /* "revrng/numpy_wrapper.pyx":59
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1585,7 +1594,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
           if (__pyx_t_8) {
             __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__2, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 59; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
@@ -1600,7 +1609,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
       __pyx_L44:;
     }
 
-    /* "revrng/numpy_wrapper.pyx":55
+    /* "revrng/numpy_wrapper.pyx":61
  *         with lock, nogil:
  *             value = func(state)
  *         return value             # <<<<<<<<<<<<<<
@@ -1608,14 +1617,14 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyInt_From_unsigned_long(__pyx_v_value); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_unsigned_long(__pyx_v_value); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
   }
 
-  /* "revrng/numpy_wrapper.pyx":35
+  /* "revrng/numpy_wrapper.pyx":41
  * 
  * 
  * cdef object assign_random_ulong_array(             # <<<<<<<<<<<<<<
@@ -1638,7 +1647,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(rng_s
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":58
+/* "revrng/numpy_wrapper.pyx":64
  * 
  * 
  * cdef object assign_random_double_array(             # <<<<<<<<<<<<<<
@@ -1671,7 +1680,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("assign_random_double_array", 0);
 
-  /* "revrng/numpy_wrapper.pyx":63
+  /* "revrng/numpy_wrapper.pyx":69
  *     cdef double* values_data
  *     cdef size_t values_size, i
  *     if shape is not None:             # <<<<<<<<<<<<<<
@@ -1682,29 +1691,29 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "revrng/numpy_wrapper.pyx":64
+    /* "revrng/numpy_wrapper.pyx":70
  *     cdef size_t values_size, i
  *     if shape is not None:
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)             # <<<<<<<<<<<<<<
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_shape, __pyx_v_shape) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_shape, __pyx_v_shape) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -1714,7 +1723,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
     __pyx_v_values = ((PyArrayObject *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "revrng/numpy_wrapper.pyx":65
+    /* "revrng/numpy_wrapper.pyx":71
  *     if shape is not None:
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
  *         values_data = <double*>values.data             # <<<<<<<<<<<<<<
@@ -1723,20 +1732,20 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
  */
     __pyx_v_values_data = ((double *)__pyx_v_values->data);
 
-    /* "revrng/numpy_wrapper.pyx":66
+    /* "revrng/numpy_wrapper.pyx":72
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size             # <<<<<<<<<<<<<<
  *         with lock, nogil:
  *             if state.reversed == 0:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_values), __pyx_n_s_size); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_values), __pyx_n_s_size); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 72; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyInt_As_size_t(__pyx_t_3); if (unlikely((__pyx_t_7 == (size_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = __Pyx_PyInt_As_size_t(__pyx_t_3); if (unlikely((__pyx_t_7 == (size_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 72; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_values_size = ((size_t)__pyx_t_7);
 
-    /* "revrng/numpy_wrapper.pyx":67
+    /* "revrng/numpy_wrapper.pyx":73
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1744,9 +1753,9 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
  *                 for i in range(0, values_size):
  */
     /*with:*/ {
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_6))) {
@@ -1759,10 +1768,10 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -1778,7 +1787,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                 #endif
                 /*try:*/ {
 
-                  /* "revrng/numpy_wrapper.pyx":68
+                  /* "revrng/numpy_wrapper.pyx":74
  *         values_size = <size_t>values.size
  *         with lock, nogil:
  *             if state.reversed == 0:             # <<<<<<<<<<<<<<
@@ -1788,7 +1797,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                   __pyx_t_2 = ((__pyx_v_state->reversed == 0) != 0);
                   if (__pyx_t_2) {
 
-                    /* "revrng/numpy_wrapper.pyx":69
+                    /* "revrng/numpy_wrapper.pyx":75
  *         with lock, nogil:
  *             if state.reversed == 0:
  *                 for i in range(0, values_size):             # <<<<<<<<<<<<<<
@@ -1799,7 +1808,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_7; __pyx_t_12+=1) {
                       __pyx_v_i = __pyx_t_12;
 
-                      /* "revrng/numpy_wrapper.pyx":70
+                      /* "revrng/numpy_wrapper.pyx":76
  *             if state.reversed == 0:
  *                 for i in range(0, values_size):
  *                     values_data[i] = func(state)             # <<<<<<<<<<<<<<
@@ -1812,7 +1821,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                   }
                   /*else*/ {
 
-                    /* "revrng/numpy_wrapper.pyx":72
+                    /* "revrng/numpy_wrapper.pyx":78
  *                     values_data[i] = func(state)
  *             else:
  *                 for i in range(values_size - 1, -1, -1):             # <<<<<<<<<<<<<<
@@ -1822,7 +1831,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                     for (__pyx_t_7 = (__pyx_v_values_size - 1) + 1; __pyx_t_7 > -1 + 1; ) { __pyx_t_7-=1;
                       __pyx_v_i = __pyx_t_7;
 
-                      /* "revrng/numpy_wrapper.pyx":73
+                      /* "revrng/numpy_wrapper.pyx":79
  *             else:
  *                 for i in range(values_size - 1, -1, -1):
  *                     values_data[i] = func(state)             # <<<<<<<<<<<<<<
@@ -1835,7 +1844,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                   __pyx_L21:;
                 }
 
-                /* "revrng/numpy_wrapper.pyx":67
+                /* "revrng/numpy_wrapper.pyx":73
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1860,7 +1869,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
           if (__pyx_t_8) {
             __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__3, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
@@ -1875,7 +1884,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
       __pyx_L26:;
     }
 
-    /* "revrng/numpy_wrapper.pyx":74
+    /* "revrng/numpy_wrapper.pyx":80
  *                 for i in range(values_size - 1, -1, -1):
  *                     values_data[i] = func(state)
  *         return values             # <<<<<<<<<<<<<<
@@ -1889,7 +1898,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
   }
   /*else*/ {
 
-    /* "revrng/numpy_wrapper.pyx":76
+    /* "revrng/numpy_wrapper.pyx":82
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1897,9 +1906,9 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
  *         return value
  */
     /*with:*/ {
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 82; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 82; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_6))) {
@@ -1912,10 +1921,10 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 82; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 82; __pyx_clineno = __LINE__; goto __pyx_L27_error;}
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -1931,7 +1940,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                 #endif
                 /*try:*/ {
 
-                  /* "revrng/numpy_wrapper.pyx":77
+                  /* "revrng/numpy_wrapper.pyx":83
  *     else:
  *         with lock, nogil:
  *             value = func(state)             # <<<<<<<<<<<<<<
@@ -1941,7 +1950,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
                   __pyx_v_value = __pyx_v_func(__pyx_v_state);
                 }
 
-                /* "revrng/numpy_wrapper.pyx":76
+                /* "revrng/numpy_wrapper.pyx":82
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -1966,7 +1975,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
           if (__pyx_t_8) {
             __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__4, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 82; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
@@ -1981,7 +1990,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
       __pyx_L44:;
     }
 
-    /* "revrng/numpy_wrapper.pyx":78
+    /* "revrng/numpy_wrapper.pyx":84
  *         with lock, nogil:
  *             value = func(state)
  *         return value             # <<<<<<<<<<<<<<
@@ -1989,14 +1998,14 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_value); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
   }
 
-  /* "revrng/numpy_wrapper.pyx":58
+  /* "revrng/numpy_wrapper.pyx":64
  * 
  * 
  * cdef object assign_random_double_array(             # <<<<<<<<<<<<<<
@@ -2019,7 +2028,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(rng_
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":81
+/* "revrng/numpy_wrapper.pyx":87
  * 
  * 
  * cdef object assign_random_double_pair_array(             # <<<<<<<<<<<<<<
@@ -2055,7 +2064,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("assign_random_double_pair_array", 0);
 
-  /* "revrng/numpy_wrapper.pyx":89
+  /* "revrng/numpy_wrapper.pyx":95
  *     cdef size_t values_size, values_size_even, i
  *     cdef double value_1, value_2
  *     if shape is not None:             # <<<<<<<<<<<<<<
@@ -2066,29 +2075,29 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "revrng/numpy_wrapper.pyx":90
+    /* "revrng/numpy_wrapper.pyx":96
  *     cdef double value_1, value_2
  *     if shape is not None:
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)             # <<<<<<<<<<<<<<
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_shape, __pyx_v_shape) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_shape, __pyx_v_shape) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2098,7 +2107,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
     __pyx_v_values = ((PyArrayObject *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "revrng/numpy_wrapper.pyx":91
+    /* "revrng/numpy_wrapper.pyx":97
  *     if shape is not None:
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
  *         values_data = <double*>values.data             # <<<<<<<<<<<<<<
@@ -2107,20 +2116,20 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
  */
     __pyx_v_values_data = ((double *)__pyx_v_values->data);
 
-    /* "revrng/numpy_wrapper.pyx":92
+    /* "revrng/numpy_wrapper.pyx":98
  *         values = <np.ndarray>np.empty(shape=shape, dtype=np.float64)
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size             # <<<<<<<<<<<<<<
  *         values_size_is_odd = <int>(values_size & 1)
  *         values_size_even = values_size - values_size_is_odd
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_values), __pyx_n_s_size); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 92; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_values), __pyx_n_s_size); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyInt_As_size_t(__pyx_t_3); if (unlikely((__pyx_t_7 == (size_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 92; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = __Pyx_PyInt_As_size_t(__pyx_t_3); if (unlikely((__pyx_t_7 == (size_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_values_size = ((size_t)__pyx_t_7);
 
-    /* "revrng/numpy_wrapper.pyx":93
+    /* "revrng/numpy_wrapper.pyx":99
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size
  *         values_size_is_odd = <int>(values_size & 1)             # <<<<<<<<<<<<<<
@@ -2129,7 +2138,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
  */
     __pyx_v_values_size_is_odd = ((int)(__pyx_v_values_size & 1));
 
-    /* "revrng/numpy_wrapper.pyx":94
+    /* "revrng/numpy_wrapper.pyx":100
  *         values_size = <size_t>values.size
  *         values_size_is_odd = <int>(values_size & 1)
  *         values_size_even = values_size - values_size_is_odd             # <<<<<<<<<<<<<<
@@ -2138,7 +2147,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
  */
     __pyx_v_values_size_even = (__pyx_v_values_size - __pyx_v_values_size_is_odd);
 
-    /* "revrng/numpy_wrapper.pyx":95
+    /* "revrng/numpy_wrapper.pyx":101
  *         values_size_is_odd = <int>(values_size & 1)
  *         values_size_even = values_size - values_size_is_odd
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -2146,9 +2155,9 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
  *                 for i in range(0, values_size_even, 2):
  */
     /*with:*/ {
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_6))) {
@@ -2161,10 +2170,10 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -2180,7 +2189,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                 #endif
                 /*try:*/ {
 
-                  /* "revrng/numpy_wrapper.pyx":96
+                  /* "revrng/numpy_wrapper.pyx":102
  *         values_size_even = values_size - values_size_is_odd
  *         with lock, nogil:
  *             if state.reversed == 0:             # <<<<<<<<<<<<<<
@@ -2190,7 +2199,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                   __pyx_t_2 = ((__pyx_v_state->reversed == 0) != 0);
                   if (__pyx_t_2) {
 
-                    /* "revrng/numpy_wrapper.pyx":97
+                    /* "revrng/numpy_wrapper.pyx":103
  *         with lock, nogil:
  *             if state.reversed == 0:
  *                 for i in range(0, values_size_even, 2):             # <<<<<<<<<<<<<<
@@ -2201,7 +2210,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_7; __pyx_t_12+=2) {
                       __pyx_v_i = __pyx_t_12;
 
-                      /* "revrng/numpy_wrapper.pyx":98
+                      /* "revrng/numpy_wrapper.pyx":104
  *             if state.reversed == 0:
  *                 for i in range(0, values_size_even, 2):
  *                     func(state, &values_data[i], &values_data[i + 1])             # <<<<<<<<<<<<<<
@@ -2211,7 +2220,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                       __pyx_v_func(__pyx_v_state, (&(__pyx_v_values_data[__pyx_v_i])), (&(__pyx_v_values_data[(__pyx_v_i + 1)])));
                     }
 
-                    /* "revrng/numpy_wrapper.pyx":99
+                    /* "revrng/numpy_wrapper.pyx":105
  *                 for i in range(0, values_size_even, 2):
  *                     func(state, &values_data[i], &values_data[i + 1])
  *                 if values_size_is_odd:             # <<<<<<<<<<<<<<
@@ -2221,7 +2230,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                     __pyx_t_2 = (__pyx_v_values_size_is_odd != 0);
                     if (__pyx_t_2) {
 
-                      /* "revrng/numpy_wrapper.pyx":100
+                      /* "revrng/numpy_wrapper.pyx":106
  *                     func(state, &values_data[i], &values_data[i + 1])
  *                 if values_size_is_odd:
  *                     func(state, &values_data[values_size - 1], &value_1)             # <<<<<<<<<<<<<<
@@ -2236,7 +2245,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                   }
                   /*else*/ {
 
-                    /* "revrng/numpy_wrapper.pyx":102
+                    /* "revrng/numpy_wrapper.pyx":108
  *                     func(state, &values_data[values_size - 1], &value_1)
  *             else:
  *                 if values_size_is_odd:             # <<<<<<<<<<<<<<
@@ -2246,7 +2255,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                     __pyx_t_2 = (__pyx_v_values_size_is_odd != 0);
                     if (__pyx_t_2) {
 
-                      /* "revrng/numpy_wrapper.pyx":103
+                      /* "revrng/numpy_wrapper.pyx":109
  *             else:
  *                 if values_size_is_odd:
  *                     func(state, &values_data[values_size - 1], &value_1)             # <<<<<<<<<<<<<<
@@ -2258,7 +2267,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                     }
                     __pyx_L25:;
 
-                    /* "revrng/numpy_wrapper.pyx":104
+                    /* "revrng/numpy_wrapper.pyx":110
  *                 if values_size_is_odd:
  *                     func(state, &values_data[values_size - 1], &value_1)
  *                 for i in range(values_size_even - 1, -1, -2):             # <<<<<<<<<<<<<<
@@ -2268,7 +2277,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                     for (__pyx_t_7 = (__pyx_v_values_size_even - 1) + 2; __pyx_t_7 > -1 + 2; ) { __pyx_t_7-=2;
                       __pyx_v_i = __pyx_t_7;
 
-                      /* "revrng/numpy_wrapper.pyx":105
+                      /* "revrng/numpy_wrapper.pyx":111
  *                     func(state, &values_data[values_size - 1], &value_1)
  *                 for i in range(values_size_even - 1, -1, -2):
  *                     func(state, &values_data[i - 1], &values_data[i])             # <<<<<<<<<<<<<<
@@ -2281,7 +2290,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                   __pyx_L21:;
                 }
 
-                /* "revrng/numpy_wrapper.pyx":95
+                /* "revrng/numpy_wrapper.pyx":101
  *         values_size_is_odd = <int>(values_size & 1)
  *         values_size_even = values_size - values_size_is_odd
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -2306,7 +2315,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
           if (__pyx_t_8) {
             __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__5, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
@@ -2321,7 +2330,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
       __pyx_L28:;
     }
 
-    /* "revrng/numpy_wrapper.pyx":106
+    /* "revrng/numpy_wrapper.pyx":112
  *                 for i in range(values_size_even - 1, -1, -2):
  *                     func(state, &values_data[i - 1], &values_data[i])
  *         return values             # <<<<<<<<<<<<<<
@@ -2335,7 +2344,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
   }
   /*else*/ {
 
-    /* "revrng/numpy_wrapper.pyx":108
+    /* "revrng/numpy_wrapper.pyx":114
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -2343,9 +2352,9 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
  *         return value_1
  */
     /*with:*/ {
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 108; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 108; __pyx_clineno = __LINE__; goto __pyx_L29_error;}
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_v_lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L29_error;}
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_6))) {
@@ -2358,10 +2367,10 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 108; __pyx_clineno = __LINE__; goto __pyx_L29_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L29_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 108; __pyx_clineno = __LINE__; goto __pyx_L29_error;}
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L29_error;}
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -2377,7 +2386,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                 #endif
                 /*try:*/ {
 
-                  /* "revrng/numpy_wrapper.pyx":109
+                  /* "revrng/numpy_wrapper.pyx":115
  *     else:
  *         with lock, nogil:
  *             func(state, &value_1, &value_2)             # <<<<<<<<<<<<<<
@@ -2387,7 +2396,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
                   __pyx_v_func(__pyx_v_state, (&__pyx_v_value_1), (&__pyx_v_value_2));
                 }
 
-                /* "revrng/numpy_wrapper.pyx":108
+                /* "revrng/numpy_wrapper.pyx":114
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
@@ -2412,7 +2421,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
           if (__pyx_t_8) {
             __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__6, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 108; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
@@ -2427,7 +2436,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
       __pyx_L46:;
     }
 
-    /* "revrng/numpy_wrapper.pyx":110
+    /* "revrng/numpy_wrapper.pyx":116
  *         with lock, nogil:
  *             func(state, &value_1, &value_2)
  *         return value_1             # <<<<<<<<<<<<<<
@@ -2435,14 +2444,14 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_value_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_value_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 116; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
   }
 
-  /* "revrng/numpy_wrapper.pyx":81
+  /* "revrng/numpy_wrapper.pyx":87
  * 
  * 
  * cdef object assign_random_double_pair_array(             # <<<<<<<<<<<<<<
@@ -2465,7 +2474,7 @@ static PyObject *__pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":118
+/* "revrng/numpy_wrapper.pyx":125
  *     cdef object lock
  * 
  *     def __cinit__(self, seed):             # <<<<<<<<<<<<<<
@@ -2501,7 +2510,7 @@ static int __pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_1__cinit__(P
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 125; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2512,7 +2521,7 @@ static int __pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_1__cinit__(P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 125; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2530,7 +2539,7 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState___cinit__(st
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "revrng/numpy_wrapper.pyx":119
+  /* "revrng/numpy_wrapper.pyx":126
  * 
  *     def __cinit__(self, seed):
  *         self.internal_state = <rng_state*> PyMem_Malloc(sizeof(rng_state))             # <<<<<<<<<<<<<<
@@ -2539,7 +2548,7 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState___cinit__(st
  */
   __pyx_v_self->internal_state = ((rng_state *)PyMem_Malloc((sizeof(rng_state))));
 
-  /* "revrng/numpy_wrapper.pyx":118
+  /* "revrng/numpy_wrapper.pyx":125
  *     cdef object lock
  * 
  *     def __cinit__(self, seed):             # <<<<<<<<<<<<<<
@@ -2553,16 +2562,20 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState___cinit__(st
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":121
+/* "revrng/numpy_wrapper.pyx":128
  *         self.internal_state = <rng_state*> PyMem_Malloc(sizeof(rng_state))
  * 
  *     def __init__(self, seed):             # <<<<<<<<<<<<<<
- *         self.lock = Lock()
- *         self.seed(seed)
+ *         """
+ *         Reversible random number generator.
  */
 
 /* Python wrapper */
 static int __pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__[] = "\n        Reversible random number generator.\n\n        Parameters\n        ----------\n        seed : int\n            Integer seed in range [0, 2**32 - 1].\n\n        Raises\n        ------\n            ValueError: Seed outside of [0, 2**32 - 1] specified.\n            TypeError: Non-integer seed.\n        ";
+#if CYTHON_COMPILING_IN_CPYTHON
+struct wrapperbase __pyx_wrapperbase_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__;
+#endif
 static int __pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_seed = 0;
   int __pyx_lineno = 0;
@@ -2589,7 +2602,7 @@ static int __pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_3__init__(Py
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 128; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2600,7 +2613,7 @@ static int __pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_3__init__(Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 128; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2625,14 +2638,14 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "revrng/numpy_wrapper.pyx":122
- * 
- *     def __init__(self, seed):
+  /* "revrng/numpy_wrapper.pyx":142
+ *             TypeError: Non-integer seed.
+ *         """
  *         self.lock = Lock()             # <<<<<<<<<<<<<<
  *         self.seed(seed)
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Lock); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Lock); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -2645,10 +2658,10 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__(st
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -2658,14 +2671,14 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__(st
   __pyx_v_self->lock = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":123
- *     def __init__(self, seed):
+  /* "revrng/numpy_wrapper.pyx":143
+ *         """
  *         self.lock = Lock()
  *         self.seed(seed)             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_seed); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_seed); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2678,28 +2691,28 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__(st
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_seed); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_seed); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __Pyx_GIVEREF(__pyx_t_3); __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_v_seed);
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_seed);
     __Pyx_GIVEREF(__pyx_v_seed);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":121
+  /* "revrng/numpy_wrapper.pyx":128
  *         self.internal_state = <rng_state*> PyMem_Malloc(sizeof(rng_state))
  * 
  *     def __init__(self, seed):             # <<<<<<<<<<<<<<
- *         self.lock = Lock()
- *         self.seed(seed)
+ *         """
+ *         Reversible random number generator.
  */
 
   /* function exit code */
@@ -2717,7 +2730,7 @@ static int __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__(st
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":125
+/* "revrng/numpy_wrapper.pyx":145
  *         self.seed(seed)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2741,7 +2754,7 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "revrng/numpy_wrapper.pyx":126
+  /* "revrng/numpy_wrapper.pyx":146
  * 
  *     def __dealloc__(self):
  *         if self.internal_state != NULL:             # <<<<<<<<<<<<<<
@@ -2751,7 +2764,7 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
   __pyx_t_1 = ((__pyx_v_self->internal_state != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "revrng/numpy_wrapper.pyx":127
+    /* "revrng/numpy_wrapper.pyx":147
  *     def __dealloc__(self):
  *         if self.internal_state != NULL:
  *             PyMem_Free(self.internal_state)             # <<<<<<<<<<<<<<
@@ -2760,7 +2773,7 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
  */
     PyMem_Free(__pyx_v_self->internal_state);
 
-    /* "revrng/numpy_wrapper.pyx":128
+    /* "revrng/numpy_wrapper.pyx":148
  *         if self.internal_state != NULL:
  *             PyMem_Free(self.internal_state)
  *             self.internal_state = NULL             # <<<<<<<<<<<<<<
@@ -2772,7 +2785,7 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
   }
   __pyx_L3:;
 
-  /* "revrng/numpy_wrapper.pyx":125
+  /* "revrng/numpy_wrapper.pyx":145
  *         self.seed(seed)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2784,16 +2797,17 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
   __Pyx_RefNannyFinishContext();
 }
 
-/* "revrng/numpy_wrapper.pyx":130
+/* "revrng/numpy_wrapper.pyx":150
  *             self.internal_state = NULL
  * 
  *     def seed(self, seed):             # <<<<<<<<<<<<<<
- *         try:
- *             seed = int(seed)
+ *         """
+ *         Initialise state using an integer seed.
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_7seed(PyObject *__pyx_v_self, PyObject *__pyx_v_seed); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed[] = "\n        Initialise state using an integer seed.\n\n        Parameters\n        ----------\n        seed : int\n            Integer seed in range [0, 2**32 - 1].\n\n        Raises\n        ------\n            ValueError: Seed outside of [0, 2**32 - 1] specified.\n            TypeError: Non-integer seed.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_7seed(PyObject *__pyx_v_self, PyObject *__pyx_v_seed) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -2830,9 +2844,9 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
   __Pyx_RefNannySetupContext("seed", 0);
   __Pyx_INCREF(__pyx_v_seed);
 
-  /* "revrng/numpy_wrapper.pyx":131
- * 
- *     def seed(self, seed):
+  /* "revrng/numpy_wrapper.pyx":164
+ *             TypeError: Non-integer seed.
+ *         """
  *         try:             # <<<<<<<<<<<<<<
  *             seed = int(seed)
  *             if seed > int(2**32 - 1) or seed < 0:
@@ -2844,58 +2858,58 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "revrng/numpy_wrapper.pyx":132
- *     def seed(self, seed):
+      /* "revrng/numpy_wrapper.pyx":165
+ *         """
  *         try:
  *             seed = int(seed)             # <<<<<<<<<<<<<<
  *             if seed > int(2**32 - 1) or seed < 0:
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")
  */
-      __pyx_t_4 = PyNumber_Int(__pyx_v_seed); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 132; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_4 = PyNumber_Int(__pyx_v_seed); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF_SET(__pyx_v_seed, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "revrng/numpy_wrapper.pyx":133
+      /* "revrng/numpy_wrapper.pyx":166
  *         try:
  *             seed = int(seed)
  *             if seed > int(2**32 - 1) or seed < 0:             # <<<<<<<<<<<<<<
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")
  *             with self.lock:
  */
-      __pyx_t_4 = PyNumber_Int(__pyx_int_4294967295); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_4 = PyNumber_Int(__pyx_int_4294967295); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_v_seed, __pyx_t_4, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_6 = PyObject_RichCompare(__pyx_v_seed, __pyx_t_4, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (!__pyx_t_7) {
       } else {
         __pyx_t_5 = __pyx_t_7;
         goto __pyx_L12_bool_binop_done;
       }
-      __pyx_t_6 = PyObject_RichCompare(__pyx_v_seed, __pyx_int_0, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_6 = PyObject_RichCompare(__pyx_v_seed, __pyx_int_0, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_7 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_5 = __pyx_t_7;
       __pyx_L12_bool_binop_done:;
       if (__pyx_t_5) {
 
-        /* "revrng/numpy_wrapper.pyx":134
+        /* "revrng/numpy_wrapper.pyx":167
  *             seed = int(seed)
  *             if seed > int(2**32 - 1) or seed < 0:
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")             # <<<<<<<<<<<<<<
  *             with self.lock:
  *                 init_state(seed, self.internal_state)
  */
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_Raise(__pyx_t_6, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
 
-      /* "revrng/numpy_wrapper.pyx":135
+      /* "revrng/numpy_wrapper.pyx":168
  *             if seed > int(2**32 - 1) or seed < 0:
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")
  *             with self.lock:             # <<<<<<<<<<<<<<
@@ -2903,9 +2917,9 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
  *         except TypeError:
  */
       /*with:*/ {
-        __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L14_error;}
+        __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L14_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_9 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
@@ -2918,10 +2932,10 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
           }
         }
         if (__pyx_t_9) {
-          __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L14_error;}
+          __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L14_error;}
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         } else {
-          __pyx_t_6 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L14_error;}
+          __pyx_t_6 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L14_error;}
         }
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -2934,14 +2948,14 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
             __Pyx_XGOTREF(__pyx_t_12);
             /*try:*/ {
 
-              /* "revrng/numpy_wrapper.pyx":136
+              /* "revrng/numpy_wrapper.pyx":169
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")
  *             with self.lock:
  *                 init_state(seed, self.internal_state)             # <<<<<<<<<<<<<<
  *         except TypeError:
  *             raise TypeError("Seed must be an integer.")
  */
-              __pyx_t_13 = __Pyx_PyInt_As_unsigned_long(__pyx_v_seed); if (unlikely((__pyx_t_13 == (unsigned long)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 136; __pyx_clineno = __LINE__; goto __pyx_L20_error;}
+              __pyx_t_13 = __Pyx_PyInt_As_unsigned_long(__pyx_v_seed); if (unlikely((__pyx_t_13 == (unsigned long)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L20_error;}
               init_state(__pyx_t_13, __pyx_v_self->internal_state);
             }
             __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -2953,7 +2967,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-            /* "revrng/numpy_wrapper.pyx":135
+            /* "revrng/numpy_wrapper.pyx":168
  *             if seed > int(2**32 - 1) or seed < 0:
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")
  *             with self.lock:             # <<<<<<<<<<<<<<
@@ -2962,20 +2976,20 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
  */
             /*except:*/ {
               __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.seed", __pyx_clineno, __pyx_lineno, __pyx_filename);
-              if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_4, &__pyx_t_9) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
+              if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_4, &__pyx_t_9) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
               __Pyx_GOTREF(__pyx_t_6);
               __Pyx_GOTREF(__pyx_t_4);
               __Pyx_GOTREF(__pyx_t_9);
-              __pyx_t_14 = PyTuple_Pack(3, __pyx_t_6, __pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
+              __pyx_t_14 = PyTuple_Pack(3, __pyx_t_6, __pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
               __Pyx_GOTREF(__pyx_t_14);
               __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_14, NULL);
               __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
               __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-              if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
+              if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
               __Pyx_GOTREF(__pyx_t_15);
               __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_15);
               __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-              if (__pyx_t_5 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
+              if (__pyx_t_5 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
               __pyx_t_7 = ((!(__pyx_t_5 != 0)) != 0);
               if (__pyx_t_7) {
                 __Pyx_GIVEREF(__pyx_t_6);
@@ -2983,7 +2997,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
                 __Pyx_XGIVEREF(__pyx_t_9);
                 __Pyx_ErrRestore(__pyx_t_6, __pyx_t_4, __pyx_t_9);
                 __pyx_t_6 = 0; __pyx_t_4 = 0; __pyx_t_9 = 0; 
-                {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
+                {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L22_except_error;}
               }
               __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
               __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -3009,7 +3023,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
             if (__pyx_t_8) {
               __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__8, NULL);
               __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-              if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+              if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
               __Pyx_GOTREF(__pyx_t_12);
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             }
@@ -3034,7 +3048,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "revrng/numpy_wrapper.pyx":137
+    /* "revrng/numpy_wrapper.pyx":170
  *             with self.lock:
  *                 init_state(seed, self.internal_state)
  *         except TypeError:             # <<<<<<<<<<<<<<
@@ -3044,23 +3058,23 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
     __pyx_t_16 = PyErr_ExceptionMatches(__pyx_builtin_TypeError);
     if (__pyx_t_16) {
       __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.seed", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_9, &__pyx_t_4, &__pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 137; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
+      if (__Pyx_GetException(&__pyx_t_9, &__pyx_t_4, &__pyx_t_6) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 170; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GOTREF(__pyx_t_6);
 
-      /* "revrng/numpy_wrapper.pyx":138
+      /* "revrng/numpy_wrapper.pyx":171
  *                 init_state(seed, self.internal_state)
  *         except TypeError:
  *             raise TypeError("Seed must be an integer.")             # <<<<<<<<<<<<<<
  * 
  *     def get_state(self):
  */
-      __pyx_t_14 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
+      __pyx_t_14 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 171; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
       __Pyx_GOTREF(__pyx_t_14);
       __Pyx_Raise(__pyx_t_14, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 171; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
@@ -3072,12 +3086,12 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
     __pyx_L10_try_end:;
   }
 
-  /* "revrng/numpy_wrapper.pyx":130
+  /* "revrng/numpy_wrapper.pyx":150
  *             self.internal_state = NULL
  * 
  *     def seed(self, seed):             # <<<<<<<<<<<<<<
- *         try:
- *             seed = int(seed)
+ *         """
+ *         Initialise state using an integer seed.
  */
 
   /* function exit code */
@@ -3097,16 +3111,17 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":140
+/* "revrng/numpy_wrapper.pyx":173
  *             raise TypeError("Seed must be an integer.")
  * 
  *     def get_state(self):             # <<<<<<<<<<<<<<
- *         cdef size_t i
- *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
+ *         """
+ *         Get a dictionary representing the internal state of the generator.
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_9get_state(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_state[] = "\n        Get a dictionary representing the internal state of the generator.\n\n        Returns\n        -------\n        dict\n            seed :\n                integer seed used to initialise state\n            key:\n                Mersenne-Twister 624 integer state\n            pos:\n                current position in key\n            reversed:\n                whether updating forward (==0) or in reverse (==1)\n            n_twists:\n                number of twist operations perfomed (initial state defined as\n                zero, reverse twists decrement therefore can be negative)\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_9get_state(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3150,23 +3165,23 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_state", 0);
 
-  /* "revrng/numpy_wrapper.pyx":142
- *     def get_state(self):
+  /* "revrng/numpy_wrapper.pyx":193
+ *         """
  *         cdef size_t i
  *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)             # <<<<<<<<<<<<<<
  *         with self.lock:
  *             seed = self.internal_state.seed
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(KEY_LENGTH); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(KEY_LENGTH); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -3181,7 +3196,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
       __pyx_t_6 = 1;
     }
   }
-  __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
   if (__pyx_t_4) {
     PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4); __Pyx_GIVEREF(__pyx_t_4); __pyx_t_4 = NULL;
@@ -3192,7 +3207,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
   __Pyx_GIVEREF(__pyx_t_5);
   __pyx_t_2 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 193; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3202,7 +3217,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
   __pyx_v_key = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":143
+  /* "revrng/numpy_wrapper.pyx":194
  *         cdef size_t i
  *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
  *         with self.lock:             # <<<<<<<<<<<<<<
@@ -3210,9 +3225,9 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
  *             for i in range(KEY_LENGTH):
  */
   /*with:*/ {
-    __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_1 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_t_1 = __Pyx_PyObject_LookupSpecial(__pyx_v_self->lock, __pyx_n_s_enter); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_7 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
@@ -3225,10 +3240,10 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
       }
     }
     if (__pyx_t_7) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     }
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3241,7 +3256,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
         __Pyx_XGOTREF(__pyx_t_11);
         /*try:*/ {
 
-          /* "revrng/numpy_wrapper.pyx":144
+          /* "revrng/numpy_wrapper.pyx":195
  *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
  *         with self.lock:
  *             seed = self.internal_state.seed             # <<<<<<<<<<<<<<
@@ -3251,7 +3266,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
           __pyx_t_12 = __pyx_v_self->internal_state->seed;
           __pyx_v_seed = __pyx_t_12;
 
-          /* "revrng/numpy_wrapper.pyx":145
+          /* "revrng/numpy_wrapper.pyx":196
  *         with self.lock:
  *             seed = self.internal_state.seed
  *             for i in range(KEY_LENGTH):             # <<<<<<<<<<<<<<
@@ -3262,20 +3277,20 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
           for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
             __pyx_v_i = __pyx_t_14;
 
-            /* "revrng/numpy_wrapper.pyx":146
+            /* "revrng/numpy_wrapper.pyx":197
  *             seed = self.internal_state.seed
  *             for i in range(KEY_LENGTH):
  *                 key[i] = self.internal_state.key[i]             # <<<<<<<<<<<<<<
  *             pos = self.internal_state.pos
  *             reversed = self.internal_state.reversed
  */
-            __pyx_t_3 = __Pyx_PyInt_From_unsigned_long((__pyx_v_self->internal_state->key[__pyx_v_i])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 146; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+            __pyx_t_3 = __Pyx_PyInt_From_unsigned_long((__pyx_v_self->internal_state->key[__pyx_v_i])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 197; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
             __Pyx_GOTREF(__pyx_t_3);
-            if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_key), __pyx_v_i, __pyx_t_3, size_t, 0, __Pyx_PyInt_FromSize_t, 0, 0, 1) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 146; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+            if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_key), __pyx_v_i, __pyx_t_3, size_t, 0, __Pyx_PyInt_FromSize_t, 0, 0, 1) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 197; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           }
 
-          /* "revrng/numpy_wrapper.pyx":147
+          /* "revrng/numpy_wrapper.pyx":198
  *             for i in range(KEY_LENGTH):
  *                 key[i] = self.internal_state.key[i]
  *             pos = self.internal_state.pos             # <<<<<<<<<<<<<<
@@ -3285,7 +3300,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
           __pyx_t_15 = __pyx_v_self->internal_state->pos;
           __pyx_v_pos = __pyx_t_15;
 
-          /* "revrng/numpy_wrapper.pyx":148
+          /* "revrng/numpy_wrapper.pyx":199
  *                 key[i] = self.internal_state.key[i]
  *             pos = self.internal_state.pos
  *             reversed = self.internal_state.reversed             # <<<<<<<<<<<<<<
@@ -3295,7 +3310,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
           __pyx_t_15 = __pyx_v_self->internal_state->reversed;
           __pyx_v_reversed = __pyx_t_15;
 
-          /* "revrng/numpy_wrapper.pyx":149
+          /* "revrng/numpy_wrapper.pyx":200
  *             pos = self.internal_state.pos
  *             reversed = self.internal_state.reversed
  *             n_twists = self.internal_state.n_twists             # <<<<<<<<<<<<<<
@@ -3317,7 +3332,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "revrng/numpy_wrapper.pyx":143
+        /* "revrng/numpy_wrapper.pyx":194
  *         cdef size_t i
  *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
  *         with self.lock:             # <<<<<<<<<<<<<<
@@ -3326,20 +3341,20 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
  */
         /*except:*/ {
           __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.get_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_16 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (unlikely(!__pyx_t_16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_16);
           __pyx_t_17 = __Pyx_PyObject_IsTrue(__pyx_t_16);
           __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-          if (__pyx_t_17 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__pyx_t_17 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __pyx_t_18 = ((!(__pyx_t_17 != 0)) != 0);
           if (__pyx_t_18) {
             __Pyx_GIVEREF(__pyx_t_3);
@@ -3347,7 +3362,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
             __Pyx_XGIVEREF(__pyx_t_7);
             __Pyx_ErrRestore(__pyx_t_3, __pyx_t_1, __pyx_t_7);
             __pyx_t_3 = 0; __pyx_t_1 = 0; __pyx_t_7 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3373,7 +3388,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
         if (__pyx_t_8) {
           __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__10, NULL);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
@@ -3388,21 +3403,21 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
     __pyx_L20:;
   }
 
-  /* "revrng/numpy_wrapper.pyx":150
+  /* "revrng/numpy_wrapper.pyx":201
  *             reversed = self.internal_state.reversed
  *             n_twists = self.internal_state.n_twists
  *         key = <np.ndarray>np.asarray(key, np.uint32)             # <<<<<<<<<<<<<<
  *         return {
  *             'seed': seed,
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint32); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint32); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -3417,7 +3432,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
       __pyx_t_6 = 1;
     }
   }
-  __pyx_t_2 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (__pyx_t_1) {
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1); __Pyx_GIVEREF(__pyx_t_1); __pyx_t_1 = NULL;
@@ -3428,7 +3443,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
   PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_6, __pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_5);
   __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3438,7 +3453,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
   __Pyx_DECREF_SET(__pyx_v_key, ((PyArrayObject *)__pyx_t_3));
   __pyx_t_3 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":151
+  /* "revrng/numpy_wrapper.pyx":202
  *             n_twists = self.internal_state.n_twists
  *         key = <np.ndarray>np.asarray(key, np.uint32)
  *         return {             # <<<<<<<<<<<<<<
@@ -3446,75 +3461,75 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
  *             'key': key,
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "revrng/numpy_wrapper.pyx":152
+  /* "revrng/numpy_wrapper.pyx":203
  *         key = <np.ndarray>np.asarray(key, np.uint32)
  *         return {
  *             'seed': seed,             # <<<<<<<<<<<<<<
  *             'key': key,
  *             'pos': pos,
  */
-  __pyx_t_7 = __Pyx_PyInt_From_unsigned_long(__pyx_v_seed); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyInt_From_unsigned_long(__pyx_v_seed); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 203; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_seed, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_seed, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":153
+  /* "revrng/numpy_wrapper.pyx":204
  *         return {
  *             'seed': seed,
  *             'key': key,             # <<<<<<<<<<<<<<
  *             'pos': pos,
  *             'reversed': reversed,
  */
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_key, ((PyObject *)__pyx_v_key)) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_key, ((PyObject *)__pyx_v_key)) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "revrng/numpy_wrapper.pyx":154
+  /* "revrng/numpy_wrapper.pyx":205
  *             'seed': seed,
  *             'key': key,
  *             'pos': pos,             # <<<<<<<<<<<<<<
  *             'reversed': reversed,
  *             'n_twists': n_twists
  */
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_pos); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_pos); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pos, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pos, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":155
+  /* "revrng/numpy_wrapper.pyx":206
  *             'key': key,
  *             'pos': pos,
  *             'reversed': reversed,             # <<<<<<<<<<<<<<
  *             'n_twists': n_twists
  *         }
  */
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_reversed); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_reversed); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 206; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_reversed, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_reversed, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":157
+  /* "revrng/numpy_wrapper.pyx":208
  *             'reversed': reversed,
  *             'n_twists': n_twists
  *         }             # <<<<<<<<<<<<<<
  * 
  *     def reverse(self):
  */
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_n_twists); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 157; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_n_twists); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_n_twists, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_n_twists, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "revrng/numpy_wrapper.pyx":140
+  /* "revrng/numpy_wrapper.pyx":173
  *             raise TypeError("Seed must be an integer.")
  * 
  *     def get_state(self):             # <<<<<<<<<<<<<<
- *         cdef size_t i
- *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
+ *         """
+ *         Get a dictionary representing the internal state of the generator.
  */
 
   /* function exit code */
@@ -3534,16 +3549,17 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":159
+/* "revrng/numpy_wrapper.pyx":210
  *         }
  * 
  *     def reverse(self):             # <<<<<<<<<<<<<<
- *         reverse(self.internal_state)
- * 
+ *         """
+ *         Reverse direction of random number generator updates.
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_11reverse(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_10reverse[] = "\n        Reverse direction of random number generator updates.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_11reverse(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3560,21 +3576,21 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_10reve
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("reverse", 0);
 
-  /* "revrng/numpy_wrapper.pyx":160
- * 
- *     def reverse(self):
+  /* "revrng/numpy_wrapper.pyx":214
+ *         Reverse direction of random number generator updates.
+ *         """
  *         reverse(self.internal_state)             # <<<<<<<<<<<<<<
  * 
- *     def random_integers(self, shape=None):
+ *     def random_int32(self, shape=None):
  */
   reverse(__pyx_v_self->internal_state);
 
-  /* "revrng/numpy_wrapper.pyx":159
+  /* "revrng/numpy_wrapper.pyx":210
  *         }
  * 
  *     def reverse(self):             # <<<<<<<<<<<<<<
- *         reverse(self.internal_state)
- * 
+ *         """
+ *         Reverse direction of random number generator updates.
  */
 
   /* function exit code */
@@ -3584,24 +3600,25 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_10reve
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":162
+/* "revrng/numpy_wrapper.pyx":216
  *         reverse(self.internal_state)
  * 
- *     def random_integers(self, shape=None):             # <<<<<<<<<<<<<<
- *         return assign_random_ulong_array(
- *             self.internal_state, random_int32, shape, self.lock
+ *     def random_int32(self, shape=None):             # <<<<<<<<<<<<<<
+ *         """
+ *         Generate array of random integers uniformly distributed on [0, 2**32).
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_integers(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_integers(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_int32(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32[] = "\n        Generate array of random integers uniformly distributed on [0, 2**32).\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or int\n            Generated samples.\n        ";
+static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_int32(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("random_integers (wrapper)", 0);
+  __Pyx_RefNannySetupContext("random_int32 (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_shape,0};
     PyObject* values[1] = {0};
@@ -3623,7 +3640,7 @@ static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13rand
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "random_integers") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "random_int32") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 216; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3636,92 +3653,127 @@ static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13rand
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("random_integers", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("random_int32", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 216; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.random_integers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.random_int32", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_integers(((struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *)__pyx_v_self), __pyx_v_shape);
+  __pyx_r = __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32(((struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *)__pyx_v_self), __pyx_v_shape);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_integers(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_shape) {
+static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32(struct __pyx_obj_6revrng_13numpy_wrapper_ReversibleRandomState *__pyx_v_self, PyObject *__pyx_v_shape) {
+  PyObject *__pyx_v_values = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
+  int __pyx_t_3;
+  int __pyx_t_4;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("random_integers", 0);
+  __Pyx_RefNannySetupContext("random_int32", 0);
 
-  /* "revrng/numpy_wrapper.pyx":163
- * 
- *     def random_integers(self, shape=None):
- *         return assign_random_ulong_array(             # <<<<<<<<<<<<<<
- *             self.internal_state, random_int32, shape, self.lock
- *         )
- */
-  __Pyx_XDECREF(__pyx_r);
-
-  /* "revrng/numpy_wrapper.pyx":164
- *     def random_integers(self, shape=None):
- *         return assign_random_ulong_array(
+  /* "revrng/numpy_wrapper.pyx":231
+ *         """
+ *         values = assign_random_ulong_array(
  *             self.internal_state, random_int32, shape, self.lock             # <<<<<<<<<<<<<<
  *         )
- * 
+ *         if shape is None:
  */
   __pyx_t_1 = __pyx_v_self->lock;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "revrng/numpy_wrapper.pyx":163
- * 
- *     def random_integers(self, shape=None):
- *         return assign_random_ulong_array(             # <<<<<<<<<<<<<<
+  /* "revrng/numpy_wrapper.pyx":230
+ *             Generated samples.
+ *         """
+ *         values = assign_random_ulong_array(             # <<<<<<<<<<<<<<
  *             self.internal_state, random_int32, shape, self.lock
  *         )
  */
-  __pyx_t_2 = __pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(__pyx_v_self->internal_state, random_int32, __pyx_v_shape, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_f_6revrng_13numpy_wrapper_assign_random_ulong_array(__pyx_v_self->internal_state, random_int32, __pyx_v_shape, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 230; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_r = __pyx_t_2;
+  __pyx_v_values = __pyx_t_2;
   __pyx_t_2 = 0;
-  goto __pyx_L0;
 
-  /* "revrng/numpy_wrapper.pyx":162
+  /* "revrng/numpy_wrapper.pyx":233
+ *             self.internal_state, random_int32, shape, self.lock
+ *         )
+ *         if shape is None:             # <<<<<<<<<<<<<<
+ *             return int(values)
+ *         else:
+ */
+  __pyx_t_3 = (__pyx_v_shape == Py_None);
+  __pyx_t_4 = (__pyx_t_3 != 0);
+  if (__pyx_t_4) {
+
+    /* "revrng/numpy_wrapper.pyx":234
+ *         )
+ *         if shape is None:
+ *             return int(values)             # <<<<<<<<<<<<<<
+ *         else:
+ *             return values
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_2 = PyNumber_Int(__pyx_v_values); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+  /*else*/ {
+
+    /* "revrng/numpy_wrapper.pyx":236
+ *             return int(values)
+ *         else:
+ *             return values             # <<<<<<<<<<<<<<
+ * 
+ *     def standard_uniform(self, shape=None):
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_v_values);
+    __pyx_r = __pyx_v_values;
+    goto __pyx_L0;
+  }
+
+  /* "revrng/numpy_wrapper.pyx":216
  *         reverse(self.internal_state)
  * 
- *     def random_integers(self, shape=None):             # <<<<<<<<<<<<<<
- *         return assign_random_ulong_array(
- *             self.internal_state, random_int32, shape, self.lock
+ *     def random_int32(self, shape=None):             # <<<<<<<<<<<<<<
+ *         """
+ *         Generate array of random integers uniformly distributed on [0, 2**32).
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.random_integers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.random_int32", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_values);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":167
- *         )
+/* "revrng/numpy_wrapper.pyx":238
+ *             return values
  * 
  *     def standard_uniform(self, shape=None):             # <<<<<<<<<<<<<<
- *         return assign_random_double_array(
- *             self.internal_state, random_uniform, shape, self.lock
+ *         """
+ *         Generate array of random double-precision floating point values
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15standard_uniform(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_14standard_uniform[] = "\n        Generate array of random double-precision floating point values\n        uniformly distributed on [0, 1).\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or float\n            Generated samples.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15standard_uniform(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
@@ -3751,7 +3803,7 @@ static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15stan
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "standard_uniform") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "standard_uniform") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3764,7 +3816,7 @@ static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15stan
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("standard_uniform", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("standard_uniform", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.standard_uniform", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3787,17 +3839,17 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_14stan
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("standard_uniform", 0);
 
-  /* "revrng/numpy_wrapper.pyx":168
- * 
- *     def standard_uniform(self, shape=None):
+  /* "revrng/numpy_wrapper.pyx":253
+ *             Generated samples.
+ *         """
  *         return assign_random_double_array(             # <<<<<<<<<<<<<<
  *             self.internal_state, random_uniform, shape, self.lock
  *         )
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "revrng/numpy_wrapper.pyx":169
- *     def standard_uniform(self, shape=None):
+  /* "revrng/numpy_wrapper.pyx":254
+ *         """
  *         return assign_random_double_array(
  *             self.internal_state, random_uniform, shape, self.lock             # <<<<<<<<<<<<<<
  *         )
@@ -3806,26 +3858,26 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_14stan
   __pyx_t_1 = __pyx_v_self->lock;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "revrng/numpy_wrapper.pyx":168
- * 
- *     def standard_uniform(self, shape=None):
+  /* "revrng/numpy_wrapper.pyx":253
+ *             Generated samples.
+ *         """
  *         return assign_random_double_array(             # <<<<<<<<<<<<<<
  *             self.internal_state, random_uniform, shape, self.lock
  *         )
  */
-  __pyx_t_2 = __pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(__pyx_v_self->internal_state, random_uniform, __pyx_v_shape, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_f_6revrng_13numpy_wrapper_assign_random_double_array(__pyx_v_self->internal_state, random_uniform, __pyx_v_shape, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "revrng/numpy_wrapper.pyx":167
- *         )
+  /* "revrng/numpy_wrapper.pyx":238
+ *             return values
  * 
  *     def standard_uniform(self, shape=None):             # <<<<<<<<<<<<<<
- *         return assign_random_double_array(
- *             self.internal_state, random_uniform, shape, self.lock
+ *         """
+ *         Generate array of random double-precision floating point values
  */
 
   /* function exit code */
@@ -3840,16 +3892,17 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_14stan
   return __pyx_r;
 }
 
-/* "revrng/numpy_wrapper.pyx":172
+/* "revrng/numpy_wrapper.pyx":257
  *         )
  * 
  *     def standard_normal(self, shape=None):             # <<<<<<<<<<<<<<
- *         return assign_random_double_pair_array(
- *             self.internal_state, random_normal_pair, shape, self.lock
+ *         """
+ *         Generate array of random double-precision floating point values
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17standard_normal(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_16standard_normal[] = "\n        Generate array of random double-precision floating point values\n        from zero mean, unit variance normal distribution.\n\n        Note that the normal samples are always generated in pairs - if an\n        array of odd overall size (or single scalar value) is specified, one\n        normal sample will be discarded (with reversibility maintained).\n        Therefore sampling many individual normal values will be relatively\n        inefficient.\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or float\n            Generated samples.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17standard_normal(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
@@ -3879,7 +3932,7 @@ static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17stan
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "standard_normal") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "standard_normal") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 257; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3892,7 +3945,7 @@ static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17stan
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("standard_normal", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("standard_normal", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 257; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("revrng.numpy_wrapper.ReversibleRandomState.standard_normal", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3915,17 +3968,17 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_16stan
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("standard_normal", 0);
 
-  /* "revrng/numpy_wrapper.pyx":173
- * 
- *     def standard_normal(self, shape=None):
+  /* "revrng/numpy_wrapper.pyx":278
+ *             Generated samples.
+ *         """
  *         return assign_random_double_pair_array(             # <<<<<<<<<<<<<<
  *             self.internal_state, random_normal_pair, shape, self.lock
  *         )
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "revrng/numpy_wrapper.pyx":174
- *     def standard_normal(self, shape=None):
+  /* "revrng/numpy_wrapper.pyx":279
+ *         """
  *         return assign_random_double_pair_array(
  *             self.internal_state, random_normal_pair, shape, self.lock             # <<<<<<<<<<<<<<
  *         )
@@ -3933,26 +3986,26 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_16stan
   __pyx_t_1 = __pyx_v_self->lock;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "revrng/numpy_wrapper.pyx":173
- * 
- *     def standard_normal(self, shape=None):
+  /* "revrng/numpy_wrapper.pyx":278
+ *             Generated samples.
+ *         """
  *         return assign_random_double_pair_array(             # <<<<<<<<<<<<<<
  *             self.internal_state, random_normal_pair, shape, self.lock
  *         )
  */
-  __pyx_t_2 = __pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array(__pyx_v_self->internal_state, random_normal_pair, __pyx_v_shape, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_f_6revrng_13numpy_wrapper_assign_random_double_pair_array(__pyx_v_self->internal_state, random_normal_pair, __pyx_v_shape, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "revrng/numpy_wrapper.pyx":172
+  /* "revrng/numpy_wrapper.pyx":257
  *         )
  * 
  *     def standard_normal(self, shape=None):             # <<<<<<<<<<<<<<
- *         return assign_random_double_pair_array(
- *             self.internal_state, random_normal_pair, shape, self.lock
+ *         """
+ *         Generate array of random double-precision floating point values
  */
 
   /* function exit code */
@@ -6025,12 +6078,12 @@ static int __pyx_tp_clear_6revrng_13numpy_wrapper_ReversibleRandomState(PyObject
 }
 
 static PyMethodDef __pyx_methods_6revrng_13numpy_wrapper_ReversibleRandomState[] = {
-  {"seed", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_7seed, METH_O, 0},
-  {"get_state", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_9get_state, METH_NOARGS, 0},
-  {"reverse", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_11reverse, METH_NOARGS, 0},
-  {"random_integers", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_integers, METH_VARARGS|METH_KEYWORDS, 0},
-  {"standard_uniform", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15standard_uniform, METH_VARARGS|METH_KEYWORDS, 0},
-  {"standard_normal", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17standard_normal, METH_VARARGS|METH_KEYWORDS, 0},
+  {"seed", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_7seed, METH_O, __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed},
+  {"get_state", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_9get_state, METH_NOARGS, __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_state},
+  {"reverse", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_11reverse, METH_NOARGS, __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_10reverse},
+  {"random_int32", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_int32, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32},
+  {"standard_uniform", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15standard_uniform, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_14standard_uniform},
+  {"standard_normal", (PyCFunction)__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17standard_normal, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_16standard_normal},
   {0, 0, 0, 0}
 };
 
@@ -6059,7 +6112,7 @@ static PyTypeObject __pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  0, /*tp_doc*/
+  " Numpy-compatible reversible random number generator. ", /*tp_doc*/
   __pyx_tp_traverse_6revrng_13numpy_wrapper_ReversibleRandomState, /*tp_traverse*/
   __pyx_tp_clear_6revrng_13numpy_wrapper_ReversibleRandomState, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -6103,7 +6156,7 @@ static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
   #endif
     "numpy_wrapper",
-    0, /* m_doc */
+    __pyx_k_Numpy_compatible_reversible_ran, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
     NULL, /* m_reload */
@@ -6118,6 +6171,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_Format_string_allocated_too_shor_2, __pyx_k_Format_string_allocated_too_shor_2, sizeof(__pyx_k_Format_string_allocated_too_shor_2), 0, 1, 0, 0},
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
   {&__pyx_n_s_Lock, __pyx_k_Lock, sizeof(__pyx_k_Lock), 0, 0, 1, 1},
+  {&__pyx_n_s_MIT, __pyx_k_MIT, sizeof(__pyx_k_MIT), 0, 0, 1, 1},
+  {&__pyx_kp_s_Matt_Graham, __pyx_k_Matt_Graham, sizeof(__pyx_k_Matt_Graham), 0, 0, 1, 0},
   {&__pyx_kp_u_Non_native_byte_order_not_suppor, __pyx_k_Non_native_byte_order_not_suppor, sizeof(__pyx_k_Non_native_byte_order_not_suppor), 0, 1, 0, 0},
   {&__pyx_n_s_RuntimeError, __pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 0, 1, 1},
   {&__pyx_kp_s_Seed_must_be_an_integer, __pyx_k_Seed_must_be_an_integer, sizeof(__pyx_k_Seed_must_be_an_integer), 0, 0, 1, 0},
@@ -6125,6 +6180,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_asarray, __pyx_k_asarray, sizeof(__pyx_k_asarray), 0, 0, 1, 1},
+  {&__pyx_n_s_authors, __pyx_k_authors, sizeof(__pyx_k_authors), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
   {&__pyx_n_s_dummy_threading, __pyx_k_dummy_threading, sizeof(__pyx_k_dummy_threading), 0, 0, 1, 1},
   {&__pyx_n_s_empty, __pyx_k_empty, sizeof(__pyx_k_empty), 0, 0, 1, 1},
@@ -6133,6 +6189,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_key, __pyx_k_key, sizeof(__pyx_k_key), 0, 0, 1, 1},
+  {&__pyx_n_s_license, __pyx_k_license, sizeof(__pyx_k_license), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_n_twists, __pyx_k_n_twists, sizeof(__pyx_k_n_twists), 0, 0, 1, 1},
   {&__pyx_kp_u_ndarray_is_not_C_contiguous, __pyx_k_ndarray_is_not_C_contiguous, sizeof(__pyx_k_ndarray_is_not_C_contiguous), 0, 1, 0, 0},
@@ -6154,10 +6211,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 6; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 46; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 137; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 52; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 802; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
@@ -6168,113 +6225,113 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "revrng/numpy_wrapper.pyx":44
+  /* "revrng/numpy_wrapper.pyx":50
  *         values_data = <unsigned long*>values.data
  *         values_size = <size_t>values.size
  *         with lock, nogil:             # <<<<<<<<<<<<<<
  *             if state.reversed == 0:
  *                 for i in range(0, values_size):
  */
-  __pyx_tuple_ = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple_ = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "revrng/numpy_wrapper.pyx":53
+  /* "revrng/numpy_wrapper.pyx":59
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
  *             value = func(state)
  *         return value
  */
-  __pyx_tuple__2 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__2 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 59; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "revrng/numpy_wrapper.pyx":67
+  /* "revrng/numpy_wrapper.pyx":73
  *         values_data = <double*>values.data
  *         values_size = <size_t>values.size
  *         with lock, nogil:             # <<<<<<<<<<<<<<
  *             if state.reversed == 0:
  *                 for i in range(0, values_size):
  */
-  __pyx_tuple__3 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__3 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "revrng/numpy_wrapper.pyx":76
+  /* "revrng/numpy_wrapper.pyx":82
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
  *             value = func(state)
  *         return value
  */
-  __pyx_tuple__4 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__4 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 82; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "revrng/numpy_wrapper.pyx":95
+  /* "revrng/numpy_wrapper.pyx":101
  *         values_size_is_odd = <int>(values_size & 1)
  *         values_size_even = values_size - values_size_is_odd
  *         with lock, nogil:             # <<<<<<<<<<<<<<
  *             if state.reversed == 0:
  *                 for i in range(0, values_size_even, 2):
  */
-  __pyx_tuple__5 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__5 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "revrng/numpy_wrapper.pyx":108
+  /* "revrng/numpy_wrapper.pyx":114
  *         return values
  *     else:
  *         with lock, nogil:             # <<<<<<<<<<<<<<
  *             func(state, &value_1, &value_2)
  *         return value_1
  */
-  __pyx_tuple__6 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 108; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__6 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "revrng/numpy_wrapper.pyx":134
+  /* "revrng/numpy_wrapper.pyx":167
  *             seed = int(seed)
  *             if seed > int(2**32 - 1) or seed < 0:
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")             # <<<<<<<<<<<<<<
  *             with self.lock:
  *                 init_state(seed, self.internal_state)
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_Seed_must_be_in_integer_in_0_2_3); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_Seed_must_be_in_integer_in_0_2_3); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "revrng/numpy_wrapper.pyx":135
+  /* "revrng/numpy_wrapper.pyx":168
  *             if seed > int(2**32 - 1) or seed < 0:
  *                 raise ValueError("Seed must be in integer in [0, 2**32 - 1].")
  *             with self.lock:             # <<<<<<<<<<<<<<
  *                 init_state(seed, self.internal_state)
  *         except TypeError:
  */
-  __pyx_tuple__8 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__8 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 168; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "revrng/numpy_wrapper.pyx":138
+  /* "revrng/numpy_wrapper.pyx":171
  *                 init_state(seed, self.internal_state)
  *         except TypeError:
  *             raise TypeError("Seed must be an integer.")             # <<<<<<<<<<<<<<
  * 
  *     def get_state(self):
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_Seed_must_be_an_integer); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_Seed_must_be_an_integer); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 171; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "revrng/numpy_wrapper.pyx":143
+  /* "revrng/numpy_wrapper.pyx":194
  *         cdef size_t i
  *         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
  *         with self.lock:             # <<<<<<<<<<<<<<
  *             seed = self.internal_state.seed
  *             for i in range(KEY_LENGTH):
  */
-  __pyx_tuple__10 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__10 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
@@ -6411,7 +6468,7 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("numpy_wrapper", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("numpy_wrapper", __pyx_methods, __pyx_k_Numpy_compatible_reversible_ran, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -6447,9 +6504,19 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "ReversibleRandomState", (PyObject *)&__pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  #if CYTHON_COMPILING_IN_CPYTHON
+  {
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState, "__init__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
+      __pyx_wrapperbase_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__.doc = __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6revrng_13numpy_wrapper_21ReversibleRandomState_2__init__;
+    }
+  }
+  #endif
+  if (PyObject_SetAttrString(__pyx_m, "ReversibleRandomState", (PyObject *)&__pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_6revrng_13numpy_wrapper_ReversibleRandomState = &__pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState;
   /*--- Type import code ---*/
   __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "type", 
@@ -6468,17 +6535,37 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
   /*--- Function import code ---*/
   /*--- Execution code ---*/
 
-  /* "revrng/numpy_wrapper.pyx":1
+  /* "revrng/numpy_wrapper.pyx":4
+ * """ Numpy-compatible reversible random number generation. """
+ * 
+ * __authors__ = 'Matt Graham'             # <<<<<<<<<<<<<<
+ * __license__ = 'MIT'
+ * 
+ */
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_authors, __pyx_kp_s_Matt_Graham) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 4; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+
+  /* "revrng/numpy_wrapper.pyx":5
+ * 
+ * __authors__ = 'Matt Graham'
+ * __license__ = 'MIT'             # <<<<<<<<<<<<<<
+ * 
+ * import numpy as np
+ */
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_license, __pyx_n_s_MIT) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 5; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+
+  /* "revrng/numpy_wrapper.pyx":7
+ * __license__ = 'MIT'
+ * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * from cpython.mem cimport PyMem_Malloc, PyMem_Free
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 7; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 7; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "revrng/numpy_wrapper.pyx":4
+  /* "revrng/numpy_wrapper.pyx":10
  * cimport numpy as np
  * from cpython.mem cimport PyMem_Malloc, PyMem_Free
  * try:             # <<<<<<<<<<<<<<
@@ -6492,24 +6579,24 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "revrng/numpy_wrapper.pyx":5
+      /* "revrng/numpy_wrapper.pyx":11
  * from cpython.mem cimport PyMem_Malloc, PyMem_Free
  * try:
  *     from threading import Lock             # <<<<<<<<<<<<<<
  * except ImportError:
  *     from dummy_threading import Lock
  */
-      __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 5; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
+      __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 11; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_n_s_Lock);
       PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Lock);
       __Pyx_GIVEREF(__pyx_n_s_Lock);
-      __pyx_t_5 = __Pyx_Import(__pyx_n_s_threading, __pyx_t_1, -1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 5; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
+      __pyx_t_5 = __Pyx_Import(__pyx_n_s_threading, __pyx_t_1, -1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 11; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_5, __pyx_n_s_Lock); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 5; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
+      __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_5, __pyx_n_s_Lock); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 11; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      if (PyDict_SetItem(__pyx_d, __pyx_n_s_Lock, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 5; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
+      if (PyDict_SetItem(__pyx_d, __pyx_n_s_Lock, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 11; __pyx_clineno = __LINE__; goto __pyx_L2_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -6521,7 +6608,7 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "revrng/numpy_wrapper.pyx":6
+    /* "revrng/numpy_wrapper.pyx":12
  * try:
  *     from threading import Lock
  * except ImportError:             # <<<<<<<<<<<<<<
@@ -6531,29 +6618,29 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
     __pyx_t_6 = PyErr_ExceptionMatches(__pyx_builtin_ImportError);
     if (__pyx_t_6) {
       __Pyx_AddTraceback("revrng.numpy_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_1, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 6; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_1, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "revrng/numpy_wrapper.pyx":7
+      /* "revrng/numpy_wrapper.pyx":13
  *     from threading import Lock
  * except ImportError:
  *     from dummy_threading import Lock             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 7; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
+      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 13; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_INCREF(__pyx_n_s_Lock);
       PyList_SET_ITEM(__pyx_t_8, 0, __pyx_n_s_Lock);
       __Pyx_GIVEREF(__pyx_n_s_Lock);
-      __pyx_t_9 = __Pyx_Import(__pyx_n_s_dummy_threading, __pyx_t_8, -1); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 7; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
+      __pyx_t_9 = __Pyx_Import(__pyx_n_s_dummy_threading, __pyx_t_8, -1); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 13; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_ImportFrom(__pyx_t_9, __pyx_n_s_Lock); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 7; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
+      __pyx_t_8 = __Pyx_ImportFrom(__pyx_t_9, __pyx_n_s_Lock); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 13; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
       __Pyx_GOTREF(__pyx_t_8);
-      if (PyDict_SetItem(__pyx_d, __pyx_n_s_Lock, __pyx_t_8) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 7; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
+      if (PyDict_SetItem(__pyx_d, __pyx_n_s_Lock, __pyx_t_8) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 13; __pyx_clineno = __LINE__; goto __pyx_L4_except_error;}
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -6577,9 +6664,9 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
   }
 
   /* "revrng/numpy_wrapper.pyx":1
- * import numpy as np             # <<<<<<<<<<<<<<
- * cimport numpy as np
- * from cpython.mem cimport PyMem_Malloc, PyMem_Free
+ * # -*- coding: utf-8 -*-             # <<<<<<<<<<<<<<
+ * """ Numpy-compatible reversible random number generation. """
+ * 
  */
   __pyx_t_7 = PyDict_New(); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);

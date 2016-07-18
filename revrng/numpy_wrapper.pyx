@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+""" Numpy-compatible reversible random number generation. """
+
+__authors__ = 'Matt Graham'
+__license__ = 'MIT'
+
 import numpy as np
 cimport numpy as np
 from cpython.mem cimport PyMem_Malloc, PyMem_Free
@@ -111,6 +117,7 @@ cdef object assign_random_double_pair_array(
 
 
 cdef class ReversibleRandomState:
+    """ Numpy-compatible reversible random number generator. """
 
     cdef rng_state *internal_state
     cdef object lock
@@ -119,6 +126,19 @@ cdef class ReversibleRandomState:
         self.internal_state = <rng_state*> PyMem_Malloc(sizeof(rng_state))
 
     def __init__(self, seed):
+        """
+        Reversible random number generator.
+
+        Parameters
+        ----------
+        seed : int
+            Integer seed in range [0, 2**32 - 1].
+
+        Raises
+        ------
+            ValueError: Seed outside of [0, 2**32 - 1] specified.
+            TypeError: Non-integer seed.
+        """
         self.lock = Lock()
         self.seed(seed)
 
@@ -128,6 +148,19 @@ cdef class ReversibleRandomState:
             self.internal_state = NULL
 
     def seed(self, seed):
+        """
+        Initialise state using an integer seed.
+
+        Parameters
+        ----------
+        seed : int
+            Integer seed in range [0, 2**32 - 1].
+
+        Raises
+        ------
+            ValueError: Seed outside of [0, 2**32 - 1] specified.
+            TypeError: Non-integer seed.
+        """
         try:
             seed = int(seed)
             if seed > int(2**32 - 1) or seed < 0:
@@ -138,6 +171,24 @@ cdef class ReversibleRandomState:
             raise TypeError("Seed must be an integer.")
 
     def get_state(self):
+        """
+        Get a dictionary representing the internal state of the generator.
+
+        Returns
+        -------
+        dict
+            seed :
+                integer seed used to initialise state
+            key:
+                Mersenne-Twister 624 integer state
+            pos:
+                current position in key
+            reversed:
+                whether updating forward (==0) or in reverse (==1)
+            n_twists:
+                number of twist operations perfomed (initial state defined as
+                zero, reverse twists decrement therefore can be negative)
+        """
         cdef size_t i
         cdef np.ndarray key = <np.ndarray>np.empty(KEY_LENGTH, np.uint)
         with self.lock:
@@ -157,19 +208,73 @@ cdef class ReversibleRandomState:
         }
 
     def reverse(self):
+        """
+        Reverse direction of random number generator updates.
+        """
         reverse(self.internal_state)
 
-    def random_integers(self, shape=None):
-        return assign_random_ulong_array(
+    def random_int32(self, shape=None):
+        """
+        Generate array of random integers uniformly distributed on [0, 2**32).
+
+        Parameters
+        ----------
+        shape : tuple or None
+            Shape (dimensions) of generated array or None to return scalar.
+
+        Returns
+        -------
+        ndarray or int
+            Generated samples.
+        """
+        values = assign_random_ulong_array(
             self.internal_state, random_int32, shape, self.lock
         )
+        if shape is None:
+            return int(values)
+        else:
+            return values
 
     def standard_uniform(self, shape=None):
+        """
+        Generate array of random double-precision floating point values
+        uniformly distributed on [0, 1).
+
+        Parameters
+        ----------
+        shape : tuple or None
+            Shape (dimensions) of generated array or None to return scalar.
+
+        Returns
+        -------
+        ndarray or float
+            Generated samples.
+        """
         return assign_random_double_array(
             self.internal_state, random_uniform, shape, self.lock
         )
 
     def standard_normal(self, shape=None):
+        """
+        Generate array of random double-precision floating point values
+        from zero mean, unit variance normal distribution.
+
+        Note that the normal samples are always generated in pairs - if an
+        array of odd overall size (or single scalar value) is specified, one
+        normal sample will be discarded (with reversibility maintained).
+        Therefore sampling many individual normal values will be relatively
+        inefficient.
+
+        Parameters
+        ----------
+        shape : tuple or None
+            Shape (dimensions) of generated array or None to return scalar.
+
+        Returns
+        -------
+        ndarray or float
+            Generated samples.
+        """
         return assign_random_double_pair_array(
             self.internal_state, random_normal_pair, shape, self.lock
         )

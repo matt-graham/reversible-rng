@@ -13,9 +13,9 @@ def test_shape():
     for shape in SHAPES:
         # ndarray shape always tuple even if integer specified
         tuple_shape = shape if isinstance(shape, tuple) else (shape,)
-        samples = state.random_integers(shape)
+        samples = state.random_int32(shape)
         assert samples.shape == tuple_shape, (
-            'random_integers shape mismatch: should be {0} actually {1}'
+            'random_int32 shape mismatch: should be {0} actually {1}'
             .format(tuple_shape, samples.shape)
         )
         samples = state.standard_uniform(shape)
@@ -32,9 +32,9 @@ def test_shape():
 
 def test_no_shape_calls():
     state = ReversibleRandomState(SEED)
-    sample = state.random_integers()
-    assert isinstance(sample, long), (
-        'random_integers type mismatch: should be long instance actually {0}'
+    sample = state.random_int32()
+    assert isinstance(sample, int), (
+        'random_int32 type mismatch: should be long instance actually {0}'
         .format(type(sample))
     )
     sample = state.standard_uniform()
@@ -52,9 +52,9 @@ def test_no_shape_calls():
 def test_dtype():
     state = ReversibleRandomState(SEED)
     shape = (5, 4)
-    samples = state.random_integers(shape)
+    samples = state.random_int32(shape)
     assert samples.dtype == np.uint64, (
-        'random_integers dtype mismatch: should be uint64 actually {0}'
+        'random_int32 dtype mismatch: should be uint64 actually {0}'
         .format(samples.dtype)
     )
     samples = state.standard_uniform(shape)
@@ -69,17 +69,17 @@ def test_dtype():
     )
 
 
-def test_reversibility_random_integers():
+def test_reversibility_random_int32():
     state = ReversibleRandomState(SEED)
     samples_fwd = []
     for i in range(N_ITER):
-        samples_fwd.append(state.random_integers(i + 1))
+        samples_fwd.append(state.random_int32(i + 1))
     state.reverse()
     for i in range(N_ITER - 1, -1, -1):
         sample_fwd = samples_fwd.pop(-1)
-        sample_bwd = state.random_integers(i + 1)
+        sample_bwd = state.random_int32(i + 1)
         assert np.all(sample_fwd == sample_bwd), (
-            'Incorrect reversed random_integers samples, expected {0} got {1}'
+            'Incorrect reversed random_int32 samples, expected {0} got {1}'
             .format(sample_fwd, sample_bwd)
         )
 
@@ -118,7 +118,7 @@ def test_reversibility_mixed():
     state = ReversibleRandomState(SEED)
     samples_fwd = []
     for i in range(N_ITER):
-        samples_fwd.append(state.random_integers(i + 1))
+        samples_fwd.append(state.random_int32(i + 1))
         samples_fwd.append(state.standard_uniform(i + 1))
         samples_fwd.append(state.standard_normal(i + 1))
     state.reverse()
@@ -137,18 +137,18 @@ def test_reversibility_mixed():
             .format(sample_fwd, sample_bwd)
         )
         sample_fwd = samples_fwd.pop(-1)
-        sample_bwd = state.random_integers(i + 1)
+        sample_bwd = state.random_int32(i + 1)
         assert np.all(sample_fwd == sample_bwd), (
-            'Incorrect reversed random_integers samples, expected {0} got {1}'
+            'Incorrect reversed random_int32 samples, expected {0} got {1}'
             .format(sample_fwd, sample_bwd)
         )
 
 
-def test_random_integers_in_range():
+def test_random_int32_in_range():
     state = ReversibleRandomState(SEED)
-    samples = state.random_integers(IN_RANGE_SAMPLES)
+    samples = state.random_int32(IN_RANGE_SAMPLES)
     assert np.all(samples >= 0) and np.all(samples < 2**32), (
-        'random_integers samples out of range [0, 2**32)'
+        'random_int32 samples out of range [0, 2**32)'
     )
 
 
