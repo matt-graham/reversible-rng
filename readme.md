@@ -37,3 +37,7 @@ for i in range(n_iter - 1, -1, -1):
     assert np.all(ns.pop(-1) == rng.standard_normal(shape=(i,)))
     assert np.all(us.pop(-1) == rng.standard_uniform(shape=(i,)))
 ```
+
+## Alternatives
+
+A header-only C implementation of a reversible linear congruential generator by [Johan Helsing](https://github.com/bobbaluba) is available [here](https://github.com/bobbaluba/rlcg), with the `readme.md` also giving some notes on other possible alternatives.
