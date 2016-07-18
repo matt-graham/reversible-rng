@@ -2807,7 +2807,7 @@ static void __pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_4__dealloc_
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_7seed(PyObject *__pyx_v_self, PyObject *__pyx_v_seed); /*proto*/
-static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed[] = "\n        Initialise state using an integer seed.\n\n        Parameters\n        ----------\n        seed : int\n            Integer seed in range [0, 2**32 - 1].\n\n        Raises\n        ------\n            ValueError: Seed outside of [0, 2**32 - 1] specified.\n            TypeError: Non-integer seed.\n        ";
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed[] = "ReversibleRandomState.seed(self, seed)\n\n        Initialise state using an integer seed.\n\n        Parameters\n        ----------\n        seed : int\n            Integer seed in range [0, 2**32 - 1].\n\n        Raises\n        ------\n            ValueError: Seed outside of [0, 2**32 - 1] specified.\n            TypeError: Non-integer seed.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_7seed(PyObject *__pyx_v_self, PyObject *__pyx_v_seed) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3121,7 +3121,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_6seed(
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_9get_state(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_state[] = "\n        Get a dictionary representing the internal state of the generator.\n\n        Returns\n        -------\n        dict\n            seed :\n                integer seed used to initialise state\n            key:\n                Mersenne-Twister 624 integer state\n            pos:\n                current position in key\n            reversed:\n                whether updating forward (==0) or in reverse (==1)\n            n_twists:\n                number of twist operations perfomed (initial state defined as\n                zero, reverse twists decrement therefore can be negative)\n        ";
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_state[] = "ReversibleRandomState.get_state(self)\n\n        Get a dictionary representing the internal state of the generator.\n\n        Returns\n        -------\n        dict\n            seed :\n                integer seed used to initialise state\n            key:\n                Mersenne-Twister 624 integer state\n            pos:\n                current position in key\n            reversed:\n                whether updating forward (==0) or in reverse (==1)\n            n_twists:\n                number of twist operations perfomed (initial state defined as\n                zero, reverse twists decrement therefore can be negative)\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_9get_state(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3559,7 +3559,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_8get_s
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_11reverse(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_10reverse[] = "\n        Reverse direction of random number generator updates.\n        ";
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_10reverse[] = "ReversibleRandomState.reverse(self)\n\n        Reverse direction of random number generator updates.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_11reverse(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3610,7 +3610,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_10reve
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_int32(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32[] = "\n        Generate array of random integers uniformly distributed on [0, 2**32).\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or int\n            Generated samples.\n        ";
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_12random_int32[] = "ReversibleRandomState.random_int32(self, shape=None)\n\n        Generate array of random integers uniformly distributed on [0, 2**32).\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or int\n            Generated samples.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_13random_int32(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
@@ -3773,7 +3773,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_12rand
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15standard_uniform(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_14standard_uniform[] = "\n        Generate array of random double-precision floating point values\n        uniformly distributed on [0, 1).\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or float\n            Generated samples.\n        ";
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_14standard_uniform[] = "ReversibleRandomState.standard_uniform(self, shape=None)\n\n        Generate array of random double-precision floating point values\n        uniformly distributed on [0, 1).\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or float\n            Generated samples.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_15standard_uniform(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
@@ -3902,7 +3902,7 @@ static PyObject *__pyx_pf_6revrng_13numpy_wrapper_21ReversibleRandomState_14stan
 
 /* Python wrapper */
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17standard_normal(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_16standard_normal[] = "\n        Generate array of random double-precision floating point values\n        from zero mean, unit variance normal distribution.\n\n        Note that the normal samples are always generated in pairs - if an\n        array of odd overall size (or single scalar value) is specified, one\n        normal sample will be discarded (with reversibility maintained).\n        Therefore sampling many individual normal values will be relatively\n        inefficient.\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or float\n            Generated samples.\n        ";
+static char __pyx_doc_6revrng_13numpy_wrapper_21ReversibleRandomState_16standard_normal[] = "ReversibleRandomState.standard_normal(self, shape=None)\n\n        Generate array of random double-precision floating point values\n        from zero mean, unit variance normal distribution.\n\n        Note that the normal samples are always generated in pairs - if an\n        array of odd overall size (or single scalar value) is specified, one\n        normal sample will be discarded (with reversibility maintained).\n        Therefore sampling many individual normal values will be relatively\n        inefficient.\n\n        Parameters\n        ----------\n        shape : tuple or None\n            Shape (dimensions) of generated array or None to return scalar.\n\n        Returns\n        -------\n        ndarray or float\n            Generated samples.\n        ";
 static PyObject *__pyx_pw_6revrng_13numpy_wrapper_21ReversibleRandomState_17standard_normal(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
@@ -6112,7 +6112,7 @@ static PyTypeObject __pyx_type_6revrng_13numpy_wrapper_ReversibleRandomState = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  " Numpy-compatible reversible random number generator. ", /*tp_doc*/
+  "ReversibleRandomState(seed)\n Numpy-compatible reversible random number generator. ", /*tp_doc*/
   __pyx_tp_traverse_6revrng_13numpy_wrapper_ReversibleRandomState, /*tp_traverse*/
   __pyx_tp_clear_6revrng_13numpy_wrapper_ReversibleRandomState, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -6664,7 +6664,7 @@ PyMODINIT_FUNC PyInit_numpy_wrapper(void)
   }
 
   /* "revrng/numpy_wrapper.pyx":1
- * # -*- coding: utf-8 -*-             # <<<<<<<<<<<<<<
+ * #cython: embedsignature=True             # <<<<<<<<<<<<<<
  * """ Numpy-compatible reversible random number generation. """
  * 
  */

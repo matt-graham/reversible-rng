@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#cython: embedsignature=True
 """ Numpy-compatible reversible random number generation. """
 
 __authors__ = 'Matt Graham'
