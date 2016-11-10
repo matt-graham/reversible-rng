@@ -7,15 +7,16 @@ Builds Cython module from .pyx / .c files.
 __authors__ = 'Matt Graham'
 __license__ = 'MIT'
 
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, Extension
+import numpy
 import os
 from Cython.Build import cythonize
 
 ext_modules = [
     Extension('revrng.numpy_wrapper',
               [os.path.join('revrng', file_name) for file_name
-               in ['numpy_wrapper.pyx', 'revrand.c']])
+               in ['numpy_wrapper.pyx', 'revrand.c']],
+              include_dirs=[numpy.get_include()])
 ]
 
 ext_modules = cythonize(ext_modules)
